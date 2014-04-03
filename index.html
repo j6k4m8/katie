@@ -39,6 +39,7 @@
 
 	<script>
 	var i = 0;
+	var slide = false;
 	window.setTimeout(
 		function() { document.onmousemove = function(e) {
 			document.getElementById('hair').style['-webkit-filter'] =
@@ -46,9 +47,10 @@
 		}}, 3000);
 
 		document.getElementById('hair').onclick = function(e) {
+			slide = !slide;
 			window.setInterval(function() {
-			e.target.style['-webkit-filter'] =
-			"hue-rotate(" + i++ + "deg)";
+			!!slide ? e.target.style['-webkit-filter'] =
+			"hue-rotate(" + i++ + "deg)" : -1;
 		}, 10)};
 	</script>
 </body>
